@@ -37,10 +37,10 @@ public class HelloWorld extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloWorld</title>");            
+            out.println("<title>WildFly on Kubernetes and OpenShift with Fabric8</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HelloWorld at " + request.getContextPath() + "</h1>");
+            out.println("<h1>WildFly on Kubernetes and OpenShift with Fabric8 at " + request.getServerName() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
