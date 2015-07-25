@@ -55,6 +55,7 @@
                             <name>${docker.image}</name>
                             <build>
                                 <from>${docker.from}</from>
+                                 <maintainer>markus@jboss.org</maintainer>
                                 <assembly>
                                     <inline>
                                         <dependencySets>
@@ -62,12 +63,14 @@
                                                 <includes>
                                                     <include>net.eisele:sample-web</include>
                                                 </includes>
+                                            <!--  <outputDirectory>/opt/jboss/wildfly/standalone/deployments/</outputDirectory>  -->
                                                 <outputFileNameMapping>sample.war</outputFileNameMapping>
                                             </dependencySet>
                                         </dependencySets>
                                     </inline>
-                                    <user>jboss:jboss:jboss</user>
-                                    <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
+                                     <user>jboss:jboss:jboss</user>
+                                    <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>  
+                                   <!-- <basedir>/</basedir> -->
                                 </assembly>
                             </build>
                         </image>
