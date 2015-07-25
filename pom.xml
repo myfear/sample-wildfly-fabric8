@@ -129,8 +129,8 @@
         <fabric8.label.component>${project.artifactId}</fabric8.label.component>
         <fabric8.label.container>wildfly</fabric8.label.container>
         <fabric8.label.group>myfears</fabric8.label.group>
-    
-        <fabric8.imagePullPolicy>PullIfAbsent</fabric8.imagePullPolicy>
+        <fabric8.domain>vagrant.f8</fabric8.domain>
+        <fabric8.imagePullPolicy>IfNotPresent</fabric8.imagePullPolicy>
         <docker.host>tcp://vagrant.f8:2375</docker.host>
         <docker.image>myfear/wildfly-test:latest</docker.image>
         <docker.registry>vagrant.f8:5000</docker.registry>
