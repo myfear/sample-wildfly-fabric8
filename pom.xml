@@ -29,7 +29,7 @@
     </dependencies>
     
     <build>
-      <!--  <finalName>${project.artifactId}</finalName> -->
+         <finalName>sample.war</finalName> 
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -56,6 +56,8 @@
                             <build>
                                 <from>${docker.from}</from>
                                 <assembly>
+                                    <user>jboss:jboss:jboss</user>
+                                    <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
                                     <descriptorRef>${docker.assemblyDescriptorRef}</descriptorRef>
                                 </assembly>
                                 
@@ -119,7 +121,7 @@
 
         <docker.from>jboss/wildfly:9.0.1.Final</docker.from> 
         <docker.maven.plugin.version>0.13.1</docker.maven.plugin.version>
-        <docker.assemblyDescriptorRef>rootWar</docker.assemblyDescriptorRef>
+        <docker.assemblyDescriptorRef>artifact</docker.assemblyDescriptorRef>
         
         
         <fabric8.service.name>myfear-wildfly-test</fabric8.service.name>
