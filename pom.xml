@@ -29,13 +29,13 @@
     </dependencies>
     
     <build>
-         <finalName>sample.war</finalName> 
-        <resources>
+        <finalName>sample</finalName> 
+        <!-- <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-        </resources>
+        </resources> -->
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -56,11 +56,19 @@
                             <build>
                                 <from>${docker.from}</from>
                                 <assembly>
+                                    <inline>
+                                        <dependencySets>
+                                            <dependencySet>
+                                                <includes>
+                                                    <include>net.eisele:sample-web</include>
+                                                </includes>
+                                                <outputFileNameMapping>sample.war</outputFileNameMapping>
+                                            </dependencySet>
+                                        </dependencySets>
+                                    </inline>
                                     <user>jboss:jboss:jboss</user>
                                     <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
-                                    <descriptorRef>${docker.assemblyDescriptorRef}</descriptorRef>
                                 </assembly>
-                                
                             </build>
                         </image>
                     </images>
