@@ -47,6 +47,7 @@
                     <images>
                         <image>
                             <name>${docker.image}</name>
+                            <alias>wildfly</alias>
                             <build>
                                 <from>${docker.from}</from>
                                  <maintainer>markus@jboss.org</maintainer>
@@ -67,6 +68,11 @@
                                    <!-- <basedir>/</basedir> -->
                                 </assembly>
                             </build>
+                            <run>
+                                <ports>
+                                    <port>8080:8080</port>
+                                </ports>
+                            </run>
                         </image>
                     </images>
                 </configuration>
