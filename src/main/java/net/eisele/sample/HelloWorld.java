@@ -7,6 +7,7 @@ package net.eisele.sample;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,13 +35,18 @@ public class HelloWorld extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+
+            // finding the pod ID we're running on
+            String env = System.getenv().get("HOSTNAME");
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>WildFly on Kubernetes and OpenShift with Fabric8</title>");            
+            out.println("<title>WildFly on Kubernetes and OpenShift with Fabric8</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>WildFly on Kubernetes and OpenShift with Fabric8 at " + request.getServerName() + "</h1>");
+            out.println("<b>" + env + "<b/><br/>");
             out.println("</body>");
             out.println("</html>");
         }
